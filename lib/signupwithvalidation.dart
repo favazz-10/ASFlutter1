@@ -18,7 +18,7 @@ class _signupwithvalidationState extends State<signupwithvalidation> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurpleAccent,
-        title: Text('Signup with validation'),
+        title: const Text('Signup with validation'),
         centerTitle: true,
       ),
       body: Form(
@@ -37,13 +37,14 @@ class _signupwithvalidationState extends State<signupwithvalidation> {
               padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
               child: TextFormField(
                 decoration: InputDecoration(
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       Icons.email,
                       color: Colors.deepPurpleAccent,
                     ),
-                    label: Text('Email'),
+                    label: const Text('Email'),
                     border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.deepPurpleAccent),
+                        borderSide:
+                            const BorderSide(color: Colors.deepPurpleAccent),
                         borderRadius: BorderRadius.circular(50))),
                 validator: (email) {
                   if (email!.isEmpty || !email.contains('@')) {
@@ -51,12 +52,12 @@ class _signupwithvalidationState extends State<signupwithvalidation> {
                   } else {
                     return null;
                   }
-                },
+                },textInputAction: TextInputAction.next,
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-              child: TextFormField(
+              child: TextFormField(textInputAction: TextInputAction.next,
                   validator: (pass) {
                     if (pass!.isEmpty || pass.length < 8) {
                       return 'enter suitable password';
@@ -67,11 +68,11 @@ class _signupwithvalidationState extends State<signupwithvalidation> {
                   obscureText: variable,
                   obscuringCharacter: '*',
                   decoration: InputDecoration(
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.password,
                         color: Colors.deepPurpleAccent,
                       ),
-                      label: Text('Password'),
+                      label: const Text('Password'),
                       suffixIcon: IconButton(
                         icon: variable
                             ? const Icon(Icons.remove_red_eye)
@@ -82,14 +83,15 @@ class _signupwithvalidationState extends State<signupwithvalidation> {
                           });
                         },
                       ),
+
                       border: OutlineInputBorder(
                           borderSide:
-                              BorderSide(color: Colors.deepPurpleAccent),
+                              const BorderSide(color: Colors.deepPurpleAccent),
                           borderRadius: BorderRadius.circular(50)))),
             ),
             Padding(
               padding: const EdgeInsets.all(20),
-              child: TextFormField(
+              child: TextFormField(textInputAction: TextInputAction.done,
                   validator: (conpass) {
                     if (conpass!.isEmpty || conpass.length < 6) {
                       return 'password does not mach';
@@ -100,11 +102,11 @@ class _signupwithvalidationState extends State<signupwithvalidation> {
                   obscureText: variable,
                   obscuringCharacter: '*',
                   decoration: InputDecoration(
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.password,
                         color: Colors.deepPurpleAccent,
                       ),
-                      label: Text('Confirm Password'),
+                      label: const Text('Confirm Password'),
                       suffixIcon: IconButton(
                         icon: variable
                             ? const Icon(Icons.remove_red_eye)
@@ -117,7 +119,7 @@ class _signupwithvalidationState extends State<signupwithvalidation> {
                       ),
                       border: OutlineInputBorder(
                           borderSide:
-                              BorderSide(color: Colors.deepPurpleAccent),
+                              const BorderSide(color: Colors.deepPurpleAccent),
                           borderRadius: BorderRadius.circular(50)))),
             ),
             Padding(
@@ -126,20 +128,22 @@ class _signupwithvalidationState extends State<signupwithvalidation> {
                 width: 20,
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: () {final valid = formkey.currentState!.validate();
-                  if (valid) {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => mainscreen()));
-                  } else {
-                    print('login failure');
-                  }},
-                  child: Text('SignUp'),
+                  onPressed: () {
+                    final valid = formkey.currentState!.validate();
+                    if (valid) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => mainscreen()));
+                    } else {
+                      print('login failure');
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.deepPurpleAccent,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50))),
+                  child: const Text('SignUp'),
                 ),
               ),
             ),
@@ -150,7 +154,10 @@ class _signupwithvalidationState extends State<signupwithvalidation> {
                       MaterialPageRoute(
                           builder: (context) => loginwithvalidation()));
                 },
-                child: const Text('Already have an acccount?LogIn',style: TextStyle(color: Colors.deepPurpleAccent),))
+                child: const Text(
+                  'Already have an acccount?LogIn',
+                  style: TextStyle(color: Colors.deepPurpleAccent),
+                ))
           ],
         ),
       ),
