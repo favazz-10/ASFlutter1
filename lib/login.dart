@@ -1,20 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:project2/signup.dart';
 
-class home extends StatelessWidget {
+class login extends StatefulWidget {
+  @override
+  State<login> createState() => _loginState();
+}
+
+class _loginState extends State<login> {
+  bool variable = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.pink,
         title: const Text('Login Page'),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             const Padding(
-              padding: EdgeInsets.only(top: 10),
+              padding: EdgeInsets.only(top: 10, bottom: 10),
               child: Text(
-                'Login Page',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                'Login to your Account',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
             ),
             const Padding(
@@ -34,21 +44,35 @@ class home extends StatelessWidget {
                 obscureText: true,
                 decoration: InputDecoration(
                     prefixIcon: Icon(Icons.password),
+
                     label: Text('password'),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20)))),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 30, bottom: 10),
+              padding: const EdgeInsets.only(
+                top: 30,
+              ),
               child:
                   ElevatedButton(onPressed: () {}, child: const Text('Login')),
             ),
             TextButton(
-                onPressed: () {}, child: const Text('Not a User?Register Here'))
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => signup()));
+                },
+                child: const Text('Not a User?Register Here')),
+
           ],
         ),
       ),
     );
   }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: login(),
+  ));
 }

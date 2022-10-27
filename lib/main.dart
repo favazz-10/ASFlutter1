@@ -2,7 +2,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:project2/home.dart';
+import 'package:project2/login.dart';
+import 'package:project2/loginwithvalidation.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -19,9 +20,9 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 2), () {
+    Timer(const Duration(seconds: 5), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => home()));
+          context, MaterialPageRoute(builder: (context) => loginwithvalidation()));
     });
   }
 
@@ -57,3 +58,4 @@ class _SplashState extends State<Splash> {
     );
   }
 }
+
