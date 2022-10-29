@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:project2/loginwithvalidation.dart';
 
 import 'mainscreen.dart';
@@ -10,6 +11,8 @@ class signupwithvalidation extends StatefulWidget {
 
 class _signupwithvalidationState extends State<signupwithvalidation> {
   var formkey = GlobalKey<FormState>();
+  TextEditingController pass=TextEditingController();
+  TextEditingController conpass=TextEditingController();
 
   bool variable = true;
 
@@ -57,9 +60,11 @@ class _signupwithvalidationState extends State<signupwithvalidation> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-              child: TextFormField(textInputAction: TextInputAction.next,
-                  validator: (pass) {
-                    if (pass!.isEmpty || pass.length < 8) {
+              child: TextFormField(
+                  controller: pass,
+                  textInputAction: TextInputAction.next,
+                  validator: (password) {
+                    if (password!.isEmpty || password.length < 8) {
                       return 'enter suitable password';
                     } else {
                       return null;
@@ -91,9 +96,11 @@ class _signupwithvalidationState extends State<signupwithvalidation> {
             ),
             Padding(
               padding: const EdgeInsets.all(20),
-              child: TextFormField(textInputAction: TextInputAction.done,
-                  validator: (conpass) {
-                    if (conpass!.isEmpty || conpass.length < 6) {
+              child: TextFormField(
+                  controller: conpass,
+                  textInputAction: TextInputAction.done,
+                  validator: (confirmpass) {
+                    if (confirmpass!.isEmpty || confirmpass.length < 8){ //|| pass!=conpass) {
                       return 'password does not mach';
                     } else {
                       return null;
@@ -135,8 +142,26 @@ class _signupwithvalidationState extends State<signupwithvalidation> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => mainscreen()));
+                      // ScaffoldMessenger.of(context).showSnackBar(
+                      //     SnackBar(
+                      //       content: const Text('Registration Successfull'),
+                      //       action: SnackBarAction(
+                      //         label: 'undo',
+                      //         onPressed: () {
+                      //           // Code to execute.
+                      //         },
+                      //       ),
+                      //     ),
+                     // );
                     } else {
-                      print('login failure');
+                      Fluttertoast.showToast(
+                          msg: "signup failed",
+                          toastLength: Toast.LENGTH_LONG,
+                          gravity: ToastGravity.BOTTOM,
+                          // timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 16.0);
                     }
                   },
                   style: ElevatedButton.styleFrom(
