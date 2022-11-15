@@ -11,7 +11,16 @@ class Listview_with_builder extends StatelessWidget {
     'Triple Threat',
     'WatchDogs'
   ];
-  List<int> color = [900, 800, 700, 600, 500, 400, 300, 200,];
+  List<int> color = [
+    900,
+    800,
+    700,
+    600,
+    500,
+    400,
+    300,
+    200,
+  ];
   List<String> yr = [
     "2019",
     "2020",
@@ -46,7 +55,8 @@ class Listview_with_builder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true,
+      appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Colors.teal,
         title: const Text("Movies"),
       ),
@@ -80,10 +90,11 @@ class Listview_with_builder extends StatelessWidget {
                             color: Colors.black),
                       ),
                       subtitle: Padding(
-                        padding: const EdgeInsets.only( top: 6),
+                        padding: const EdgeInsets.only(top: 6),
                         child: Text(
                           sub[index],
-                          style: TextStyle(fontSize: 15, color: Colors.black),
+                          style: const TextStyle(
+                              fontSize: 15, color: Colors.black),
                         ),
                       ),
                     )),

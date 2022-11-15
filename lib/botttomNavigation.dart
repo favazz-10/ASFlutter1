@@ -6,7 +6,6 @@ class bottomnavigation extends StatefulWidget {
 }
 
 class _bottomnavigationState extends State<bottomnavigation> {
-
   int selectedindex = 3;
 
   void onitemtap(int index) {
@@ -19,7 +18,7 @@ class _bottomnavigationState extends State<bottomnavigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BottomNavigation Bar'),
+        title: const Text('BottomNavigation Bar'),
         centerTitle: true,
       ),
       body: const Center(
@@ -40,7 +39,7 @@ class _bottomnavigationState extends State<bottomnavigation> {
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.black,
-        backgroundColor: Colors.purpleAccent,
+        backgroundColor: Colors.pink,
         currentIndex: selectedindex,
         onTap: onitemtap,
         items: const [

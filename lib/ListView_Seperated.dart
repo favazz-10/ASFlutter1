@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class listveiwseperated extends StatelessWidget {
   List a = ['a1', 'a2', 'a3'];
-  List c=[500,400,300];
+  List c = [500, 400, 300];
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,8 @@ class listveiwseperated extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 30),
                     child: Text(
                       a[index],
-                      textAlign: TextAlign.center,style: const TextStyle(fontSize: 20),
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 20),
                     ),
                   ),
                 ));
