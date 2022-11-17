@@ -175,7 +175,7 @@ class profileui extends StatelessWidget {
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(MaterialApp(debugShowCheckedModeBanner: false,
     home: profileui(),
   ));
 }
