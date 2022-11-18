@@ -8,27 +8,27 @@ class introscreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         centerTitle: true,
-        title: Text('OnBoarding Screen'),
+        title: const Text('OnBoarding Screen'),
       ),
       body: IntroductionScreen(
         dotsFlex: 3,
         dotsDecorator:
-            DotsDecorator(color: Colors.black, activeColor: Colors.pink),
+            const DotsDecorator(color: Colors.black, activeColor: Colors.pink),
         globalBackgroundColor: Colors.white,
         showNextButton: true,
-        next: Text(
+        next: const Text(
           'Next',
           style: TextStyle(color: Colors.pink),
         ),
         showBackButton: true,
-        back: Icon(
+        back: const Icon(
           Icons.arrow_back_ios_new,
           color: Colors.pink,
         ),
         // showSkipButton: true,
         // skip: Text('skip',style: TextStyle(color: Colors.pink),),
         // showDoneButton: true,
-        done: Text(
+        done: const Text(
           'Done',
           style: TextStyle(color: Colors.pink),
         ),
@@ -40,8 +40,8 @@ class introscreen extends StatelessWidget {
                 child: Image.asset('assets/images/relax.png'),
               ),
               title: 'ONBOARDING SCREEN PAGE 1',
-              body: 'Body of indroduction page 1',
-              footer: Text('@flutter'),
+              body: 'Body of introduction page 1',
+              footer: const Text('@flutter'),
               // decoration: PageDecoration(pageColor: Colors.purple)
           ),
           PageViewModel(
@@ -50,16 +50,16 @@ class introscreen extends StatelessWidget {
                 child: Image.asset('assets/images/workspace.png'),
               ),
               title: 'ONBOARDING SCREEN PAGE 2',
-              body: 'Body of indroduction page 2',
-              footer: Text('@flutter')),
+              body: 'Body of introduction page 2',
+              footer: const Text('@flutter')),
           PageViewModel(
               image: Padding(
                 padding: const EdgeInsets.only(top: 56.0),
                 child: Image.asset('assets/images/customer-service.png'),
               ),
               title: 'ONBOARDING SCREEN PAGE 3',
-              body: 'Body of indroduction page 3',
-              footer: Text('@flutter')),
+              body: 'Body of introduction page 3',
+              footer: const Text('@flutter')),
         ],
       ),
     );
